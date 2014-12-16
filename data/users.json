@@ -1,0 +1,11 @@
+{
+	"users": [
+		{
+			"id": "1",
+			"firstName": "Chad",
+			"lastName": "Callahan",
+			"email": "chad.callahan@banno.com",
+			"phone": "3192909007"
+		}
+	]
+}

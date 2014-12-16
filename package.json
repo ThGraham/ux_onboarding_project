@@ -1,0 +1,19 @@
+{
+  "name": "porifera",
+  "version": "1.0.0",
+  "description": "This is the server project required in order to build the [UX Intern Onboarding Project](ux_intern_onboarding_project.md)",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.10.0",
+    "express": "^4.10.6",
+    "expressworks": "^0.0.23",
+    "javascripting": "^1.8.0",
+    "learnyounode": "^1.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
