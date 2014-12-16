@@ -5,8 +5,8 @@ var users = require('./routes/users');
 
 var port = 24149;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/users', users)
+app.use(bodyParser.urlencoded({extended: true}));
+app.use('/users', users);
 
 function startServer () {
 	app.listen(port, function () {
