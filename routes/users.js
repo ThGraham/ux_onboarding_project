@@ -1,27 +1,52 @@
 var express = require('express');
 var router = express.Router();
-var fs = require('fs');
-
-var file = 'data/users.json';
+var Users = require('./../db/Users.js');
 
 router.get('/', function(request, response) {
-	console.log('Sending users.');
-	response.json(JSON.parse(getUsers()));
+	var promise = Users.get();
+	promise.then(function (users) {
+		console.log('Sending users.');
+		response.send(users);
+	}, function (error) {
+		response.status(error.status).send(error.message);
+	});
 });
 
 router.post('/', function (request, response) {
 	var user = request.body;
-	console.log('Adding new user.');
-	response.send(user);
+	var promise = Users.add(request.body);
+	promise.then(function (user) {
+		console.log('User added: ', user.email);
+		response.send(user);
+	}, function (error) {
+		console.log(error);
+		response.status(error.status).send(error.message);
+	});
 });
 
-router.put('/users/:id', function (request, response) {
-	console.log('Updating user.');
-	response.send();
+router.put('/:id', function (request, response) {
+	var user = request.body;
+	delete user._id; //ignore the model id, use the route id
+	var promise = Users.edit(request.params.id, user);
+	promise.then(function () {
+		console.log('User modified: ', user);
+		user._id = request.params.id;
+		response.send(user);
+	}, function (error) {
+		console.log(error);
+		response.status(error.status).send(error.message);
+	});
 });
 
-function getUsers () {
-	return fs.readFileSync(file, {encoding: 'utf8'});
-}
+router.delete('/:id', function (request, response) {
+	var promise = Users.remove(request.params.id);
+	promise.then(function () {
+		console.log('User removed: ', request.params.id);
+		response.send();
+	}, function (error) {
+		console.log(error);
+		response.status(error.status).send(error.message);
+	});
+});
 
 module.exports = router;
