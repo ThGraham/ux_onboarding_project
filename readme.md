@@ -28,13 +28,30 @@ This is the server project required in order to build the [UX Intern Onboarding 
 
 ### Routes
 
+#### `GET /users`
+
+##### Responses:
+`500` - There was a problem saving the user.
+
+`200` - Array of [**User**](#userModel) models.
+
+#### `POST /users`
+
+##### Request body:
+[**User**](#userModel) model. 
+
+##### Responses:
+`500` - There was a problem saving the user.
+
+`200` - [**User**](#userModel) model.
+
 #### `PUT /users/:id`
 
 ##### Params	
 `:id` - User ID
 
 ##### Request body:	
-[**User**](#userModel) model. If `_id` is supplied, it will be ignored.  Email cannot be changed.
+[**User**](#userModel) model. Email cannot be changed.
 
 ##### Responses:
 `400` - Email address cannot be changed.
@@ -42,3 +59,4 @@ This is the server project required in order to build the [UX Intern Onboarding 
 `500` - There was a problem saving the user.
 
 `200` - [**User**](#userModel) model
+ 
