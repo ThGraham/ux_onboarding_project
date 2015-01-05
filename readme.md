@@ -10,6 +10,7 @@ This is the server project required in order to build the [UX Intern Onboarding 
 1. Start the [mongo daemon](http://docs.mongodb.org/manual/tutorial/manage-mongodb-processes/).
 1. Install dependencies with `npm install`.
 1. Run `node index`.
+1. [Endpoints](#routes) should be available at `localhost:24149/`
 
 
 ##API
@@ -26,7 +27,7 @@ This is the server project required in order to build the [UX Intern Onboarding 
 	}
 `_id` is not required when doing `PUT` and `POST`s.  The `_id` field will be ignored and the `:id` from the route will be used instead.
 
-### Routes
+### <a name="routes"></a>Routes
 
 #### `GET /users`
 

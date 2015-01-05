@@ -1,5 +1,5 @@
 {
-  "name": "porifera",
+  "name": "ux_onboarding",
   "version": "0.0.1",
   "description": "This is the server project required in order to build the [UX Intern Onboarding Project](ux_intern_onboarding_project.md)",
   "main": "index.js",
@@ -19,5 +19,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }
