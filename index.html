@@ -2,17 +2,21 @@
 
 <html>
 <head>
+    <script src="app.js"></script>
 </head>
 
 <body>
 
     <div>
     <h1>User Profile</h1>
+    <input type="submit" value="Show Contact Info" onclick="toggleContactInfo();"></input>
         <div>Name<div>
             <div>First Name:{{user.firstName}} Last Name:{{user.lastName}}</div>
-        <div>Contact</div>
-            <div>Phone Number: {{user.phoneNumber}}</div>
-            <div>Email: {{user.emailAddress}}</div>
+          <div id="contact-info">
+          <div>Contact</div>
+              <div>Phone Number: {{user.phoneNumber}}</div>
+              <div>Email: {{user.emailAddress}}</div>
+          </div>
     </div>
 </body>
 </html>
