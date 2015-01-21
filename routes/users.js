@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var Users = require('./../db/Users.js');
 
+router.all('/*', function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 router.get('/', function(request, response) {
 	var promise = Users.get();
 	promise.then(function (users) {
